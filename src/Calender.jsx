@@ -72,38 +72,30 @@ export default function Calender() {
 
   useEffect(() => {
     if (selectedDate) {
-      // const date=selectedDate.split("-")[1]+"-"+selectedDate.split("-")[0]+"-"+selectedDate.split("-")[2];
       const dateDate=selectedDate.split("-")[0];
       const dateMonth=selectedDate.split("-")[1];
       const dateYear=selectedDate.split("-")[2];
-       console.log(dateDate,dateMonth,dateYear);
+    
       if(dateDate!==undefined&& dateMonth===undefined &&dateYear===undefined){
-        // setCurrentDate(dayjs().date(dateDate));
-        // console.log(`${dayjs().year()}-${dayjs().month()}-${dateDate}`)
+        
         setCurrentDate(dayjs(`${dayjs().year()}-${dayjs().month()}-${dateDate}`))
       }
       else if(dateDate!==undefined&& dateMonth!==undefined &&dateYear===undefined){
-        // console.log(`${dayjs().year()}-${dateMonth}-${dateDate}`);
-        //setCurrentDate(dayjs().date(dateDate));
-        // setCurrentDate(dayjs().month(dateMonth));
+       
         setCurrentDate(dayjs(`${dayjs().year()}-${dateMonth}-${dateDate}`))
       }
       if(dateDate!==undefined&& dateMonth!==undefined &&dateYear!==undefined){
-        // console.log(`${dateYear}-${dateMonth}-${dateDate}`);
-        // setCurrentDate(dayjs().date(dateDate));
-        // setCurrentDate(dayjs().month(dateMonth));
-        // setCurrentDate(dayjs().year(dateYear));
+        
         setCurrentDate(dayjs(`${dateYear}-${dateMonth}-${dateDate}`))
       }
-      // setCurrentDate(dayjs(date,"DD-MM-YYYY"));
+     
     }
   }, [selectedDate])
-  //  console.log(currentDate);
 
   return (
     <div>
       {showCalender && (
-        <div className="rounded-2xl shadow-lg mt-1 p-3 w-72">
+        <div className="rounded-2xl shadow-lg mt-1 p-3 w-72 ">
           <div className="flex justify-between p-2">
             <div className="flex items-center justify-between">
               <p className="mr-3">{currentDate.format("MMMM YYYY")} </p>
